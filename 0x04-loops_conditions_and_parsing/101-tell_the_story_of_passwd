@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#Prints Holberton School 10 times
+#Dispallays the content of the file /etc/passwd
+#using while loop + IFS
 input="/etc/passwd"
 while IFS=: read -r USERNAME PASSWORD USER_ID GROUP_ID USER_ID_INFO HOME_DIRECTORY COMMAND_SHELL
 do
