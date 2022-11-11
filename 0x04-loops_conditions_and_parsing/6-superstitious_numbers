@@ -16,8 +16,8 @@ do
 		echo "bad luck from Italy"
 		;;
 	*)
-		echo "$x"
+		echo $x
 		;;
 	esac
-	(( x++ ))
+	(( x+=1 ))
 done
