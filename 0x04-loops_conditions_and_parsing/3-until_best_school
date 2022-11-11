@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times
 
-x=1
-until [ $x -ge 10 ]
+x=10
+until [ $x -lt 1 ]
 do
-        echo "Best School"
-        (( x++ ))
+	echo "Best School"
+	(( x-=1 ))
 done
-
