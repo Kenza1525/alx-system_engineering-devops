@@ -27,3 +27,5 @@ case "$argv1" in
         startLoop_n_createFile
         ;;
     *) echo "Usage: manage_my_process {start|stop|restart}"
+	;;
+esac
