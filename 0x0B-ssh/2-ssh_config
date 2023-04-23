@@ -1,0 +1,3 @@
+#set config_file to use a private key and no password
+IdentityFile school
+PasswordAuthentication no
