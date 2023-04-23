@@ -1,3 +1,0 @@
-#connecting with ssh server
-PasswordAuthentication no
-IdentityFile ~/.ssh/school
