@@ -1,6 +1,13 @@
-#modifies ssh_config file using puppet
+# Modifies ssh_config file
 
-file {'/root/.ssh/school':
-    ensure  => present,
-    content => 'IdentityFile /root/.ssh/school\nPasswordAuthentication no',
+file { '/etc/ssh/ssh_config':
+  ensure => present,
+}
+file_line { 'changed access permission from yes to no':
+  path => '/etc/ssh/ssh_config',
+  line => '    PasswordAuthentication no',
+}
+file_line { 'changed the private key':
+  path => '/etc/ssh/ssh_config',
+  line => '    IdentityFile ~/.ssh/school',
 }
