@@ -7,7 +7,7 @@ sudo ufw allow "Nginx HTTP"
 echo 'Hello World!' | sudo tee /var/www/html/index.html
 new_url_name="https://www.youtube.com/watch?v=QH2-TGUlwu4"
 sudo sed -i "/server_name _;/a \\
-    location /redirect_me { \\
-        return 301 $new_url_name; \\
-    }" /etc/nginx/sites-available/default
+    \tlocation /redirect_me { \\
+        \treturn 301 $new_url_name; \\
+    \t}" /etc/nginx/sites-available/default
 sudo service nginx start
