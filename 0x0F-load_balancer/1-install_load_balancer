@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#configure an haproxy to handle web-01 and web-02
+
+sudo apt-get update
+sudo apt-get -y install haproxy
+sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+sudo tee /etc/haproxy/haproxy.cfg > /dev/null <<EOF
+global
+    daemon
+    maxconn 100
+
+defaults
+    mode http
+    timeout client 5000ms
+    timeout connect 5000ms
+    timeout server 5000ms
+
+listen appname
+    bind 0.0.0.0:80
+    mode http
+    balance roundrobin
+    option httpclose
+    option forwardfor
+    server 68472-web-01 54.165.30.166:80 check
+    server 68472-web-02 54.144.239.112:80 check
+EOF
+sudo service haproxy start
+
